@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bitcoin Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>₿ Bitcoin Price Prediction</h1>
+    <p class="subtitle" style="color:aquamarine;">
+        Data Science & Machine Learning Based Market Direction Prediction
+    </p>
+
+    <!-- 🔹 PROJECT INTRO -->
+    <div class="project-intro">
+        <p>
+            This project predicts whether the Bitcoin price will go <b>UP</b> or <b>DOWN</b>
+            on the next day using historical market data and machine learning techniques.
+            It helps users understand market trends and price movement behavior.
+        </p>
+    </div>
+
+    <!-- 🔮 INPUT FORM -->
+    <form method="POST">
+        <input type="number" step="any" name="open_close" placeholder="Open - Close value" required>
+        <input type="number" step="any" name="low_high" placeholder="Low - High value" required>
+        <input type="number" name="quarter_end" placeholder="Quarter End (1 or 0)" required>
+        <input type="number" step="any" name="price_change" placeholder="Price Change value" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <!-- 📈 PREDICTION RESULT -->
+    {% if prediction %}
+        <div class="result">{{ prediction }}</div>
+    {% endif %}
+
+    <!-- 📦 INFO BOXES -->
+    <div class="info-boxes">
+
+        <div class="box">
+            <h3>⚙️ How It Works</h3>
+            <p>
+                The model analyzes historical Bitcoin prices, market volatility,
+                and momentum to predict the next day’s price direction.
+            </p>
+        </div>
+
+        <div class="box">
+            <h3>🎯 Importance</h3>
+            <p>
+                Helps users understand price trends and supports learning
+                how machine learning can be applied in financial markets.
+            </p>
+        </div>
+
+        <div class="box">
+            <h3>📊 Features Used</h3>
+            <p>
+                Uses price movement, volatility, quarter-end effect,
+                and previous day price change for better prediction.
+            </p>
+        </div>
+
+        <div class="box">
+            <h3>⚠️ Disclaimer</h3>
+            <p>
+                This prediction is for educational purposes only and
+                should not be used for real trading decisions.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
